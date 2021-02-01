@@ -40,4 +40,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function isAdmin()
+    {
+        if ($this->type == "ADMIN") {
+            return true;
+        }
+        return false;
+    }
+    public function isEnduser()
+    {
+        if ($this->type == "ENDUSER") {
+            return true;
+        }
+        return false;
+    }
 }

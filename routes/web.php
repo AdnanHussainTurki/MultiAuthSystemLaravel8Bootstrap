@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware("enduser");
+
+Route::get('/home/admin', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('home.admin')->middleware("admin");
